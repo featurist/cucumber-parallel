@@ -32,8 +32,7 @@ module Cucumber
         end
         if failures.any?
           messages = failures.map do |failure|
-            "\nFailed in context #{failure.context}:\n#" +
-            "{failure.result['error_message']}\n"
+            "\nFailed in context #{failure.context}:\n#{failure.result['error_message']}\n"
           end
           raise ContextFailures.new(messages.join("\n\n"))
         elsif results.first.result['status'] == 'skipped'
